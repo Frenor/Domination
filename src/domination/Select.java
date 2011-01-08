@@ -30,8 +30,12 @@ public class Select {
 	}
 	
 	public int getLevel() {
+		int count = 0;
 		for (int i = 0; i < buildings.length; i++) {
-			
+			if(buildings[i].isBuilt() == true) {
+				count++;
+			}
 		}
+		return count;
 	}
 }

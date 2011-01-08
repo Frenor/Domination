@@ -110,10 +110,7 @@ public class Main {
 	public static boolean intToBool(int input) {
 		return (input == 1) ? true : false;
 	}
-
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
 		parseInput();
 		setScore();
