@@ -26,7 +26,7 @@ public class Main {
 		String current = "";
 		String[][] lines = new String[1][];
 		try {
-			FileReader fr = new FileReader("/Users/fredrik/Documents/workspace/Domination/src/domination/input.txt");
+			FileReader fr = new FileReader("/Users/Kristoffer/code/Java/Domination/src/domination/input.txt");
 			BufferedReader br = new BufferedReader(fr);
 			while((current = br.readLine()) != null) {
 				String[] line = current.split(";");
@@ -108,11 +108,7 @@ public class Main {
 	}
 
 	public static boolean intToBool(int input) {
-		if (input == 0)
-			return false;
-		else if (input == 1)
-			return true;
-		return false;
+		return (input == 1) ? true : false;
 	}
 
 	/**
