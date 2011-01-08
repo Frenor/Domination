@@ -51,7 +51,7 @@ public class Main {
 		String[][] lines = readIn();
 		buildings = new Building[lines.length];
 		for (int i = 1; i < lines.length; i++) {
-			buildings[i] = new Building(lines[i][0], intToBool(Integer.parseInt(lines[i][11])), timeConversion(lines[i][10]), Integer.parseInt(lines[i][14]), Integer.parseInt(lines[i][12]));
+			buildings[i] = new Building(lines[i][0], intToBool(Integer.parseInt(lines[i][11])), timeConversion(lines[i][10]), Integer.parseInt(lines[i][14]), Integer.parseInt(lines[i][12]), lines[i][1]);
 		}
 	}
 	public static String removeInt(String input) {

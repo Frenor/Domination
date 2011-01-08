@@ -1,7 +1,8 @@
 package domination;
 
-public class Building {
+public class Building implements Comparable<Building> {
 	private String name;
+	private String faction;
 	private boolean level;
 	private boolean built;
 	private int buildtime;
@@ -12,9 +13,10 @@ public class Building {
 	private Troop buildTroop;
 	private int buildTroopNum;
 
-	public Building(String name, boolean level, int buildtime, int dominationScore, int levelRequirement) {
+	public Building(String name, boolean level, int buildtime, int dominationScore, int levelRequirement, String faction) {
 		super();
 		this.name = name;
+		this.faction = faction;
 		this.level = level;
 		this.built = false;
 		this.buildtime = buildtime;
@@ -32,6 +34,10 @@ public class Building {
 
 	public void setScore(double score) {
 		this.score = score;
+	}
+	
+	public String getFaction() {
+		return faction;
 	}
 
 	public boolean isBuilt() {
@@ -77,5 +83,12 @@ public class Building {
 				+ "]";
 	}
 
-
+	@Override
+	public int compareTo(Building o) {
+		if(o.score > this.score)
+			return 1;
+		if(o.score > this.score)
+			return 0;
+		return -1;
+	}
 }
