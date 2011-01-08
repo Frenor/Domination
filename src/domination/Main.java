@@ -114,10 +114,7 @@ public class Main {
 			return true;
 		return false;
 	}
-
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
 		parseInput();
 		setScore();
