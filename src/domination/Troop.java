@@ -15,4 +15,25 @@ public class Troop {
 		this.profit = profit;
 		this.xp = xp;
 	}
+	
+	public double getProfit() {
+		return this.profit;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getPower() {
+		return power;
+	}
+
+	public int getXp() {
+		return xp;
+	}
+
+	public int getCost() {
+		return cost;
+	}
+	
 }

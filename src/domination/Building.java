@@ -1,35 +1,36 @@
 package domination;
 
 public class Building {
-	private boolean level; 
+	private String name;
+	private boolean level;
 	private boolean built;
-	private int buildtime; 
+	private int buildtime;
+	private int dominationScore;
 	private Building dependant;
-	private int troopGen; 
-	private int levelRequirement; 
-	private int score; 
+	private int levelRequirement;
+	private double score;
 	private Troop buildTroop;
 	private int buildTroopNum;
-	
-	public Building(boolean level, boolean built, int buildtime,
-			Building dependant, int troopGen, int levelRequirement,
-			Troop buildTroop, int buildTroopNum) {
+
+	public Building(String name, boolean level, int buildtime, int dominationScore, int levelRequirement) {
 		super();
+		this.name = name;
 		this.level = level;
-		this.built = built;
+		this.built = false;
 		this.buildtime = buildtime;
-		this.dependant = dependant;
-		this.troopGen = troopGen;
+		this.dominationScore = dominationScore;
+		this.dependant = null;
 		this.levelRequirement = levelRequirement;
-		this.buildTroop = buildTroop;
-		this.buildTroopNum = buildTroopNum;
+		this.score = 0;
+		this.buildTroop = null;
+		this.buildTroopNum = 0;
 	}
 
-	public int getScore() {
+	public double getScore() {
 		return score;
 	}
 
-	public void setScore(int score) {
+	public void setScore(double score) {
 		this.score = score;
 	}
 
@@ -40,13 +41,13 @@ public class Building {
 	public int getBuildtime() {
 		return buildtime;
 	}
+	
+	public int getDominationScore() {
+		return dominationScore;
+	}
 
 	public Building getDependant() {
 		return dependant;
-	}
-
-	public int getTroopGen() {
-		return troopGen;
 	}
 
 	public int getLevelRequirement() {
@@ -63,6 +64,17 @@ public class Building {
 	
 	public boolean isLevel() {
 		return level;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public String toString() {
+		return "Building [name=" + name + ", buildtime=" + buildtime
+				+ ", dominationScore=" + dominationScore + ", score=" + score
+				+ "]";
 	}
 
 
