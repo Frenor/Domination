@@ -1,13 +1,9 @@
 package domination;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
-
 import org.apache.commons.lang.ArrayUtils;
 
 public class Main {
@@ -136,7 +132,6 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(System.getProperty("user.dir"));
 		parseInput();
 		setScore();
 		Select select = new Select(buildings);
