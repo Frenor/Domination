@@ -15,7 +15,7 @@ public class Select {
 	}
 
 	public void selectFaction() {
-		String input = "Academy";
+		String input = "Inferno"";
 		for (int i = buildings.length - 1; i >= 0; i--) {
 			if(!buildings[i].getFaction().equalsIgnoreCase(input)) {
 				this.buildings = (Building[]) ArrayUtils.remove(buildings, i);
