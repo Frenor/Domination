@@ -5,17 +5,19 @@ import java.util.Arrays;
 import org.apache.commons.lang.ArrayUtils;
 
 public class Select {
+	private String faction;
 	private Building[] buildings;
 	private Building[] sortedBuildings;
 
-	public Select(Building[] buildings) {
+	public Select(Building[] buildings, String faction) {
+		this.faction = faction;
 		this.buildings = buildings;
 		this.sortedBuildings = buildings;
 		makeSort();
 	}
 
 	public void selectFaction() {
-		String input = "Sylvan";
+		String input = faction;
 		for (int i = buildings.length - 1; i >= 0; i--) {
 			if(!buildings[i].getFaction().equalsIgnoreCase(input)) {
 				this.buildings = (Building[]) ArrayUtils.remove(buildings, i);

@@ -131,10 +131,10 @@ public class Main {
 		return (input == 1) ? true : false;
 	}
 	
-	public static void main(String[] args) {
+	public static void init(String name) {
 		parseInput();
 		setScore();
-		Select select = new Select(buildings);
+		Select select = new Select(buildings, name);
 		String[] path = select.selectPath();
 		for (int i = 0; i < path.length; i++) {
 			System.out.println(path[i]);
