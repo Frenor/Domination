@@ -1,9 +1,13 @@
 package domination;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
+
 import org.apache.commons.lang.ArrayUtils;
 
 public class Main {
@@ -26,7 +30,7 @@ public class Main {
 		String current = "";
 		String[][] lines = new String[0][];
 		try {
-			FileReader fr = new FileReader("/Users/Kristoffer/code/Java/Domination/src/domination/input.txt");
+			FileReader fr = new FileReader("src/domination/input.txt");
 			BufferedReader br = new BufferedReader(fr);
 			while((current = br.readLine()) != null) {
 				String[] line = current.split(";");
@@ -53,7 +57,18 @@ public class Main {
 		for (int i = 0; i < lines.length; i++) {
 			buildings[i] = new Building(lines[i][0], intToBool(Integer.parseInt(lines[i][11])), timeConversion(lines[i][10]), Integer.parseInt(lines[i][14]), Integer.parseInt(lines[i][12]), lines[i][1]);
 		}
+		for (int i = 0; i < buildings.length; i++) {
+			Building building = buildings[i];
+			String name = lines[i][13];
+			if(name.equalsIgnoreCase("0")) {
+				building.setDependant(null);
+			}
+			else {
+				building.setDependant(findBuilding(name));
+			}
+		}
 	}
+	
 	public static String removeInt(String input) {
 		if (input == null) {
 			return null;
@@ -106,12 +121,22 @@ public class Main {
 		}
 		return sum;
 	}
+	
+	public static Building findBuilding(String name) {
+		for (int i = 0; i < buildings.length; i++) {
+			if (buildings[i].getName().equalsIgnoreCase(name)) {
+				return buildings[i];
+			}
+		}
+		return null;
+	}
 
 	public static boolean intToBool(int input) {
 		return (input == 1) ? true : false;
 	}
 	
 	public static void main(String[] args) {
+		System.out.println(System.getProperty("user.dir"));
 		parseInput();
 		setScore();
 		Select select = new Select(buildings);
