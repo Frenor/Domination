@@ -60,7 +60,7 @@ public class Main {
 				building.setDependant(null);
 			}
 			else {
-				building.setDependant(findBuilding(name));
+				building.setDependant(findBuilding(name, lines[i][1]));
 			}
 		}
 	}
@@ -118,9 +118,9 @@ public class Main {
 		return sum;
 	}
 	
-	public static Building findBuilding(String name) {
+	public static Building findBuilding(String name, String faction) {
 		for (int i = 0; i < buildings.length; i++) {
-			if (buildings[i].getName().equalsIgnoreCase(name)) {
+			if (buildings[i].getName().equalsIgnoreCase(name) && buildings[i].getFaction().equalsIgnoreCase(faction)) {
 				return buildings[i];
 			}
 		}
