@@ -30,7 +30,7 @@ public class Main {
 		String current = "";
 		String[][] lines = new String[0][];
 		try {
-			FileReader fr = new FileReader("src/domination/input.txt");
+			FileReader fr = new FileReader(System.getProperty("user.dir") + "/src/domination/input.txt");
 			BufferedReader br = new BufferedReader(fr);
 			while((current = br.readLine()) != null) {
 				String[] line = current.split(";");
