@@ -91,4 +91,8 @@ public class Building implements Comparable<Building> {
 			return 0;
 		return -1;
 	}
+
+	public void setBuilt(boolean built) {
+		this.built = built;
+	}
 }

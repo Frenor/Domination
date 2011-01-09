@@ -11,7 +11,7 @@ public class Main {
 	//	private Troop[] troops;
 
 	public static void setScore() {
-		for (int i = 1; i < buildings.length; i++) {
+		for (int i = 0; i < buildings.length; i++) {
 			Building current = buildings[i];
 			double bt = current.getBuildtime();
 			if(bt == 0)
@@ -24,7 +24,7 @@ public class Main {
 
 	public static String[][] readIn() {
 		String current = "";
-		String[][] lines = new String[1][];
+		String[][] lines = new String[0][];
 		try {
 			FileReader fr = new FileReader("/Users/Kristoffer/code/Java/Domination/src/domination/input.txt");
 			BufferedReader br = new BufferedReader(fr);
@@ -50,7 +50,7 @@ public class Main {
 	public static void parseInput() {
 		String[][] lines = readIn();
 		buildings = new Building[lines.length];
-		for (int i = 1; i < lines.length; i++) {
+		for (int i = 0; i < lines.length; i++) {
 			buildings[i] = new Building(lines[i][0], intToBool(Integer.parseInt(lines[i][11])), timeConversion(lines[i][10]), Integer.parseInt(lines[i][14]), Integer.parseInt(lines[i][12]), lines[i][1]);
 		}
 	}
@@ -114,9 +114,10 @@ public class Main {
 	public static void main(String[] args) {
 		parseInput();
 		setScore();
-		for (int i = 0; i < buildings.length; i++) {
-			System.out.println(buildings[i]);
+		Select select = new Select(buildings);
+		String[] path = select.selectPath();
+		for (int i = 0; i < path.length; i++) {
+			System.out.println(path[i]);
 		}
-
 	}
 }
