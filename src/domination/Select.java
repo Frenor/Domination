@@ -41,8 +41,12 @@ public class Select {
 
 	public boolean canBuild(Building building) {
 		if (!building.isBuilt()){
-			if (getLevel() >= building.getLevelRequirement())
-				return true;
+			if (getLevel() >= building.getLevelRequirement()){
+				if (building.getDependant() == null)
+					return true;
+				else if (building.getDependant().isBuilt())
+					return true;
+			}
 		}
 		return false;
 	}

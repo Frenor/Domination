@@ -78,9 +78,8 @@ public class Building implements Comparable<Building> {
 
 	@Override
 	public String toString() {
-		return "Building [name=" + name + ", buildtime=" + buildtime
-				+ ", dominationScore=" + dominationScore + ", score=" + score
-				+ "]";
+		return "Building [name=" + name + ", dependant=" + dependant
+				+ ", score=" + score + "]";
 	}
 
 	@Override
@@ -94,5 +93,9 @@ public class Building implements Comparable<Building> {
 
 	public void setBuilt(boolean built) {
 		this.built = built;
+	}
+
+	public void setDependant(Building dependant) {
+		this.dependant = dependant;
 	}
 }
